@@ -18,6 +18,7 @@ sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); }
 
 // testimonials variables
 const testimonialsItem = document.querySelectorAll("[data-testimonials-item]");
+const projectsItem = document.querySelectorAll("[data-filter-item]");
 const modalContainer = document.querySelector("[data-modal-container]");
 const modalCloseBtn = document.querySelector("[data-modal-close-btn]");
 const overlay = document.querySelector("[data-overlay]");
@@ -48,6 +49,25 @@ for (let i = 0; i < testimonialsItem.length; i++) {
   });
 
 }
+
+// add click event to all modal items
+for (let i = 0; i < projectsItem.length; i++) {
+  console.log("hereeee")
+  projectsItem[i].addEventListener("click", function () {
+
+    // modalImg.src = this.querySelector("[data-testimonials-avatar]").src;
+    // modalImg.alt = this.querySelector("[data-testimonials-avatar]").alt;
+    modalTitle.innerHTML = "cool"
+    modalText.innerHTML = '<p>esfiojsefiosfjiosef fiojsefiosfjiofiojsefiosfjiofiojsefiosfjio \
+    awdawd \
+    aawddwa \
+    </p>'
+    testimonialsModalFunc();
+
+  });
+
+}
+
 
 // add click event to modal close button
 modalCloseBtn.addEventListener("click", testimonialsModalFunc);

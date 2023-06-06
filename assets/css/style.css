@@ -157,7 +157,14 @@ html { font-family: var(--ff-poppins); }
 
 body { background: var(--smoky-black); }
 
+.pfp {
+  width: 150px;
+  height: 150px;
+  border-radius: 10%;
 
+  object-fit: cover;
+  object-position: center right;
+}
 
 
 
@@ -225,7 +232,7 @@ article.active {
 .h4,
 .h5 {
   color: var(--white-2);
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
 }
 
 .h2 { font-size: var(--fs-1); }
@@ -1803,7 +1810,7 @@ textarea.form-input::-webkit-resizer { display: none; }
    */
 
   main {
-    max-width: 1200px;
+    max-width: 90vw;
     margin-inline: auto;
     display: flex;
     justify-content: center;
