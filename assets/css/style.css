@@ -958,7 +958,7 @@ main {
 .project-list {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 30px;
+  gap: 7.5rem;
   margin-bottom: 10px;
 }
 
@@ -967,6 +967,8 @@ main {
 .project-item.active {
   display: block;
   animation: scaleUp 0.25s ease forwards;
+  background-color: rgb(41, 40, 40);
+  border-radius: 16px;
 }
 
 @keyframes scaleUp {
@@ -1023,7 +1025,7 @@ main {
 
 .project-item-icon-box ion-icon { --ionicon-stroke-width: 50px; }
 
-.project-img img {
+.project-img img {  /* adjust height of port img here*/
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1033,11 +1035,15 @@ main {
 .project-item > a:hover img { transform: scale(1.1); }
 
 .project-title,
-.project-category { margin-left: 10px; }
+.project-category { padding-left: 20px; padding-right: 20px; }
+
+.project-stack {
+  margin-left: 20px;
+}
 
 .project-title {
   color: var(--white-2);
-  font-size: var(--fs-5);
+  font-size: var(--fs-1);
   font-weight: var(--fw-400);
   text-transform: capitalize;
   line-height: 1.3;
@@ -1047,6 +1053,14 @@ main {
   color: var(--light-gray-70);
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
+}
+
+.project-description {
+  margin-top: 12px;
+  color: var(--white-2);
+  font-size: var(--fs-5);
+  font-weight: var(--fw-300);
+  padding: 20px;
 }
 
 

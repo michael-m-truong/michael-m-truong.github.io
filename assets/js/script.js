@@ -51,7 +51,7 @@ for (let i = 0; i < testimonialsItem.length; i++) {
 }
 
 // add click event to all modal items
-for (let i = 0; i < projectsItem.length; i++) {
+/*for (let i = 0; i < projectsItem.length; i++) {
   console.log("hereeee")
   projectsItem[i].addEventListener("click", function () {
 
@@ -71,7 +71,7 @@ for (let i = 0; i < projectsItem.length; i++) {
 
 // add click event to modal close button
 modalCloseBtn.addEventListener("click", testimonialsModalFunc);
-overlay.addEventListener("click", testimonialsModalFunc);
+overlay.addEventListener("click", testimonialsModalFunc);  */
 
 
 
@@ -169,6 +169,24 @@ for (let i = 0; i < navigationLinks.length; i++) {
         pages[i].classList.add("active");
         navigationLinks[i].classList.add("active");
         window.scrollTo(0, 0);
+
+        if (pages[i].dataset.page === "portfolio") {
+          // Change CSS for projects page
+          document.querySelector(".main-content").style.minWidth = "100%";
+          document.querySelector(".main-content").style.width = "100%";
+          document.querySelector(".main-content").style.margin = "0";
+          document.querySelector(".sidebar").style.display = "none";
+          document.querySelector("article").style.display = "none";
+        } else {
+          // Change CSS for other pages
+          document.querySelector(".sidebar").style.width = "auto";
+          document.querySelector("article").style.width = "auto";
+          document.querySelector(".main-content").style.minWidth = "75%";
+          document.querySelector(".main-content").style.width = "75%";
+          document.querySelector(".main-content").style.margin = "0";
+          document.querySelector(".sidebar").style.display = "";
+          document.querySelector("article").style.display = "";
+        }
       } else {
         pages[i].classList.remove("active");
         navigationLinks[i].classList.remove("active");
