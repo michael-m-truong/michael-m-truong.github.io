@@ -1366,17 +1366,17 @@ textarea.form-input::-webkit-resizer { display: none; }
    */
 
   .sidebar {
-    max-height: 180px;
+    max-height: 210px;
     margin-bottom: 30px;
   }
 
-  .sidebar.active { max-height: 584px; }
+  .sidebar.active { max-height: 530px; } /* originally 584px*/
 
   .sidebar-info { gap: 25px; }
 
   .avatar-box { border-radius: 30px; }
 
-  .avatar-box img { width: 120px; }
+  .avatar-box img { width: 150px; }
 
   .info-content .name { margin-bottom: 15px; }
 

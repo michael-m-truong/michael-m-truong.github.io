@@ -179,11 +179,11 @@ for (let i = 0; i < navigationLinks.length; i++) {
           document.querySelector("article").style.display = "none";
         } else {
           // Change CSS for other pages
-          document.querySelector(".sidebar").style.width = "auto";
-          document.querySelector("article").style.width = "auto";
-          document.querySelector(".main-content").style.minWidth = "75%";
-          document.querySelector(".main-content").style.width = "75%";
-          document.querySelector(".main-content").style.margin = "0";
+          // document.querySelector(".sidebar").style.width = "auto";
+          // document.querySelector("article").style.width = "auto";
+          document.querySelector(".main-content").style.minWidth = "";
+          document.querySelector(".main-content").style.width = "";
+          document.querySelector(".main-content").style.margin = "";
           document.querySelector(".sidebar").style.display = "";
           document.querySelector("article").style.display = "";
         }
