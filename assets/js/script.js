@@ -154,47 +154,93 @@ for (let i = 0; i < formInputs.length; i++) {
   });
 }
 
-
-
 // page navigation variables
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
 
-// add event to all nav link
+function updateURL(pageName) {
+  if (pageName == "about") {
+    window.location.hash = "";
+    // for (let i = 0; i < pages.length; i++) {
+    //   if (pages[i].dataset.page == "about") {
+    //     navigationLinks[i].classList.add("active");
+    //   }
+    //   else {
+    //     pages[i].classList.remove("active");
+    //   }
+    // }
+    // return
+    return
+  }
+
+  const newURL = "#" + pageName; // Prepend "#" to the pageName to create the hash
+  window.location.hash = newURL;
+}
+
+// Function to handle page navigation
+function navigateTo(pageName) {
+
+  if (!pageName && !window.location.hash) {
+    // If pageName is not provided (undefined or empty), and there is no hash in the URL
+    // Automatically set it to "about" and navigate to that page
+    updateURL("about");
+    return;
+  }
+
+  for (let i = 0; i < pages.length; i++) {
+    if (pageName === pages[i].dataset.page) {
+      pages[i].classList.add("active");
+      navigationLinks[i].classList.add("active");
+      window.scrollTo(0, 0);
+
+      if (pageName === "portfolio") {
+        // Change CSS for the portfolio page
+        document.querySelector(".main-content").style.minWidth = "100%";
+        document.querySelector(".main-content").style.width = "100%";
+        document.querySelector(".main-content").style.margin = "0";
+        document.querySelector(".sidebar").style.display = "none";
+        document.querySelector("article").style.display = "none";
+      } else {
+        // Change CSS for other pages
+        document.querySelector(".main-content").style.minWidth = "";
+        document.querySelector(".main-content").style.width = "";
+        document.querySelector(".main-content").style.margin = "";
+        document.querySelector(".sidebar").style.display = "";
+        document.querySelector("article").style.display = "";
+      }
+
+      // Call the updateURL function to update the hash part of the URL
+
+      updateURL(pageName);
+      
+
+      
+    } else {
+      pages[i].classList.remove("active");
+      navigationLinks[i].classList.remove("active");
+    }
+  }
+}
+
+// Function to handle the hashchange event (when the hash part of the URL changes)
+window.onhashchange = function () {
+  // Get the page name from the hash and navigate to the corresponding page
+  const pageName = window.location.hash.substring(1); // Remove the "#" from the hash
+  navigateTo(pageName);
+};
+
+// Add event listeners to all nav links
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
-
-    for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
-        pages[i].classList.add("active");
-        navigationLinks[i].classList.add("active");
-        window.scrollTo(0, 0);
-
-        if (pages[i].dataset.page === "portfolio") {
-          // Change CSS for projects page
-          document.querySelector(".main-content").style.minWidth = "100%";
-          document.querySelector(".main-content").style.width = "100%";
-          document.querySelector(".main-content").style.margin = "0";
-          document.querySelector(".sidebar").style.display = "none";
-          document.querySelector("article").style.display = "none";
-        } else {
-          // Change CSS for other pages
-          // document.querySelector(".sidebar").style.width = "auto";
-          // document.querySelector("article").style.width = "auto";
-          document.querySelector(".main-content").style.minWidth = "";
-          document.querySelector(".main-content").style.width = "";
-          document.querySelector(".main-content").style.margin = "";
-          document.querySelector(".sidebar").style.display = "";
-          document.querySelector("article").style.display = "";
-        }
-      } else {
-        pages[i].classList.remove("active");
-        navigationLinks[i].classList.remove("active");
-      }
-    }
-
+    const pageName = this.dataset.navLink; // Get the page name from the data-nav-link attribute
+    navigateTo(pageName);
   });
 }
+
+// When the page loads, check the hash and navigate to the corresponding page
+const pageName = window.location.hash.substring(1); // Get the page name from the hash
+navigateTo(pageName);
+
 
 
 let slideIndex = 1;
