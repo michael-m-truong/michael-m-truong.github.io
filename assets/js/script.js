@@ -243,31 +243,48 @@ navigateTo(pageName);
 
 
 
-let slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
+// Define the plusSlides function in the global scope
+function plusSlides(slideshowNum, n) {
+  console.log(slideIndex[slideshowNum])
+  showSlides(slideshowNum, slideIndex[slideshowNum] += n);
 }
 
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
+// Rest of the code remains the same
+function showSlides(slideshowNum, n) {
   let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
+  let slides = document.getElementsByClassName(`mySlides slideshow${slideshowNum}`);
+  console.log(slides)
+  //let dots = document.getElementsByClassName(`slideshow${slideshowNum} dot`);
+  if (n > slides.length) { slideIndex[slideshowNum] = 1; }
+  if (n < 1) { slideIndex[slideshowNum] = slides.length; }
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active-slide", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active-slide";
+  // for (i = 0; i < dots.length; i++) {
+  //   dots[i].className = dots[i].className.replace(" active-slide", "");
+  // }
+  slides[slideIndex[slideshowNum] - 1].style.display = "block";
+  //dots[slideIndex[slideshowNum] - 1].className += " active-slide";
 }
+
+function initializeSlideshow(slideshowNum) {
+  // Initialize slideIndex array to store the slide index for each slideshow
+  slideIndex[slideshowNum] = 1;
+  showSlides(slideshowNum, slideIndex[slideshowNum]);
+
+  // const dots = document.querySelectorAll(`.slideshow${slideshowNum} .dot`);
+  // for (let i = 0; i < dots.length; i++) {
+  //   dots[i].addEventListener("click", function() {
+  //     currentSlide(slideshowNum, i + 1);
+  //   });
+  // }
+}
+
+// Create an array to store slideIndex for each slideshow
+let slideIndex = [];
+
+// Initialize each slideshow
+initializeSlideshow(1); // For slideshow1
+initializeSlideshow(2); // For slideshow2
+// Add more calls for additional slideshows, if needed.
+
