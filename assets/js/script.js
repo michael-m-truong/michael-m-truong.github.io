@@ -291,5 +291,8 @@ initializeSlideshow(3);
 initializeSlideshow(4); 
 initializeSlideshow(5); 
 initializeSlideshow(6);
-initializeSlideshow(7); 
+initializeSlideshow(7);
+initializeSlideshow(8); 
+initializeSlideshow(9); 
+
 
