@@ -286,8 +286,9 @@ let slideIndex = [];
 // Initialize each slideshow
 
 initializeSlideshow(1); // For slideshow1
-initializeSlideshow(2); // For slideshow2
-initializeSlideshow(3); // For slideshow3
-initializeSlideshow(4); // For slideshow4
-initializeSlideshow(5); // For slideshow5
+initializeSlideshow(2); 
+initializeSlideshow(3); 
+initializeSlideshow(4); 
+initializeSlideshow(5); 
+initializeSlideshow(6); 
 
