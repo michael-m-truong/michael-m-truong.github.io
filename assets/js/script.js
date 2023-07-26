@@ -290,5 +290,6 @@ initializeSlideshow(2);
 initializeSlideshow(3); 
 initializeSlideshow(4); 
 initializeSlideshow(5); 
-initializeSlideshow(6); 
+initializeSlideshow(6);
+initializeSlideshow(7); 
 
