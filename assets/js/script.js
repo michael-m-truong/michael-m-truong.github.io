@@ -284,8 +284,10 @@ function initializeSlideshow(slideshowNum) {
 let slideIndex = [];
 
 // Initialize each slideshow
+
 initializeSlideshow(1); // For slideshow1
 initializeSlideshow(2); // For slideshow2
 initializeSlideshow(3); // For slideshow3
-// Add more calls for additional slideshows, if needed.
+initializeSlideshow(4); // For slideshow4
+initializeSlideshow(5); // For slideshow5
 
